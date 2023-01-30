@@ -4,111 +4,18 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="js/vue.js"></script>
-
         <title>WebBase from QA Ninja</title>
     </head>
  <body>
-     <div id="app">
-                <h1>Cadastro de Alunos</h1>
-         <form action="">
+       <h1>Cadastro de Alunos</h1>
+        <form>
             <label for="nomeCompleto">Nome Completo</label>
-            <input name="nomeCompleto" type="text" v-model="form.nome">
+            <input name="nomeCompleto" type="text">
             <label for="email">Email</label>
-            <input  name="email" type="text" v-model="form.email">
+            <input  name="email" type="text">
             <label for="nota">Nota</label>
-            <input name="nota"type="text" v-model="form.nota">
-            <input type="button" value="Cadastrar" @click="adicionarAluno" >
-         </form>
-
-         <div>
-             <table class="table">
-                    <thead>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Nota</th>
-                        <th>Ações</th>
-                    </thead>
-                    <tbody>
-                        <tr v-for="aluno in alunos">
-                            <td>{{aluno.nome}}</td>
-                            <td>{{aluno.email}}</td>
-                            <td>{{aluno.nota}}</td>
-                            <td><button class="danger" @click="apagarAluno(aluno)">Apagar</button></td>
-                        </tr>
-                   </tbody>
-             </table>
-          </div>
-     </div>
-     <script>
-         var app = new Vue({
-            el:"#app",
-            data:{
-                form:{
-                    nome:'',
-                    email:'',
-                    nota:'',
-
-                },
-                alunos:[
-                    { nome:'vinicius', email:'vinicius@gmail.com', nota:10,}
-                ]
-            },
-            methods:{
-                limpaFormulario:function(){
-                    this.form ={
-                    nome:'',
-                    email:'',
-                    nota:'',
-                    }
-                },
-
-                adicionarAluno: function (){
-                    //console.log(this.form)
-                    this.alunos.push(this.form)
-                    this.limpaFormulario()
-                },
-                apagarAluno:function(aluno){
-                    var posicao = this.alunos.indexOf(aluno)
-                    this.alunos.splice(posicao,1)
-                }
-            }
-         })
-     </script>
-     <style>
-           /* CSS da tabela */
-            .table{
-                margin-top: 20px;
-                width: 100%;
-                text-align: left;
-            }
-            .table th, .table td{
-                    border-top: 1px solid #ccc;
-            }
-
-            /*Como quero alterar somente a última th e a td */
-            .table th:last-child, table td:last-child{
-                text-align: right;
-            }
-
-            /* CSS pro botão(mas pode ser qualqer elemento pertence a classe "Danger*/
-            .danger{
-                background-color: #E91E63;
-                border-color: #E91E63;
-                color: #eee;
-            }
-           
-            /* CSS do formulário */
-            input{
-                display: block;
-                margin: 5px 0 5px 0;
-            }
-            input[type=button]{
-                background-color: #3F51B5;
-                border-color:#3F51B5;
-                color: #eee;
-                margin-top: 10px;
-            }
-     </style>
+            <input name="nota"type="text">
+            <input type="button" value="Cadastrar">
+        </form>
   </body>
 </html>
